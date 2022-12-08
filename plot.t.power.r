@@ -1,12 +1,13 @@
-# Funktion für Nicht-Zentralitätsparameter delta
-# d = Effektstärke, n = Stichprobengröße in Gruppe 1 & 2
+## Author: Friedemann von Lampe, 08 Dec. 2022
+## Function for noncentrality parameter delta
+## d = effect size, n = sample size in groups 1 & 2
 delta <- function(d, n1, n2) {
   d * sqrt((n1*n2)/(n1+n2))
 }
 
-# Funktion für Verteilungskurven H0 und H1
-# in Abhängigkeit zum Nicht-Zentralitätsparameter
-# d = Effektstärke, n = Stichprobengröße in Gruppe 1 & 2
+## Function for probability density distribution of H0 and H1
+## in dependence of noncentrality parameter delta
+## d = effect size, n = sample size in groups 1 & 2
 plot.t.power <- function(d, n1, n2) {
   
   colalpha <- rgb(0, 0, 0, max = 255, alpha = 125, names = "gray50")
