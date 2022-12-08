@@ -1,9 +1,13 @@
 ## Author: Friedemann von Lampe, 08 Dec. 2022
-## Function for noncentrality parameter delta
+## Function for noncentrality parameter delta in two sample t-test 
+## according to Faul et al. 2009
 ## d = effect size, n = sample size in groups 1 & 2
-delta <- function(d, n1, n2) {
+ncp.t <- function(d, n1, n2) {
   d * sqrt((n1*n2)/(n1+n2))
 }
+
+
+# Power-Angabe hinzufügen!
 
 ## Function for probability density distribution of H0 and H1
 ## in dependence of noncentrality parameter delta
@@ -13,7 +17,7 @@ plot.t.power <- function(d, n1, n2) {
   colalpha <- rgb(0, 0, 0, max = 255, alpha = 125, names = "gray50")
   colbeta <- rgb(255, 0, 0, max = 255, alpha = 125, names = "red50")
   
-  ncp <- delta(d, n1, n2)
+  ncp <- ncp.t(d, n1, n2)
   N <- n1 + n2
   
   if(d >= 0) {
@@ -29,7 +33,8 @@ plot.t.power <- function(d, n1, n2) {
   plot(xt0, ydt0, type = "l",
        xlab = "Value",
        ylab = "Probability",
-       main = paste("t-Test power with N = ", N, "and d =", d))
+       main = paste("t-Test power with N = ", N, "and d =", d),
+       las = 1)
   
   xt1 <-seq(lo, up, 0.01)
   ydt1 <-dt(xt1, df = N-2, ncp = ncp)
