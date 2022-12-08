@@ -7,10 +7,10 @@ ncp.t <- function(d, n1, n2) {
 }
 
 
-# Power-Angabe hinzufügen!
 
 ## Function for probability density distribution of H0 and H1
 ## in dependence of noncentrality parameter delta
+## with visualisation of type I & II errors
 ## d = effect size, n = sample size in groups 1 & 2
 plot.t.power <- function(d, n1, n2) {
   
