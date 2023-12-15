@@ -1,3 +1,6 @@
+# Function from David Zelený, modified by Sebastian Utermann
+# Reference see: https://davidzeleny.net/wiki/doku.php/eiv:envfit.iv
+
 envfit.iv <- function (ord, veg, spec.iv, permutations = 999, choices = c(1, 2), display = "sites", w = weights(ord), na.rm = FALSE, ...) 
 {
   weights.default <- function(object, ...) NULL
